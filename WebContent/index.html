@@ -1,0 +1,128 @@
+<html>
+<title>Assesment</title>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="js/main.js"></script>
+
+</head>
+
+
+<style>
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    padding-top: 20px;
+    display: table-cell;
+    
+    background-color: Lavender ;
+
+}
+
+
+</style>
+
+<body>
+<button type="button" class="btn btn-primary" name="new" onclick="myFunction()">NEW</button>
+<br>
+<br>
+
+<div class="div2" id="myDIV" style="display:none;">
+<form>
+
+<button type="button" class="btn btn-success" name="add" type="submit" onclick="insertApptmt();">ADD</button>
+
+<button type="button" class="btn btn-danger" name="cancel" onclick="myFunctionCancel()">CANCEL</button>
+
+<br>
+<br>
+
+<div class="block" style="margin: 0 auto;">
+
+        <label class="label label-default" for="date">DATE</label>  <input type="text" id="datepicker" style="position: absolute; left: 700.15px; display: block;">         
+</div>
+
+<br>
+<br>
+
+<div class="block">
+        <label class="label label-default" for="time">TIME</label>      <input style="position: absolute; left: 700.15px; display: block;" id="appt-time" type="time" name="appt-time" 
+           min="08:00" max="17:00" required>
+    <span class="validity"></span>
+    </div>
+<br>
+<br>
+
+<div class="block">
+<span class="label label-default" >DESC</span>
+    <input type="text" id="desc" style="position: absolute; left: 700.15px; display: block;" />
+</div>
+
+<br>
+<br>
+</form>
+</div>
+
+<div class="block">
+    <input id="search" type="text" />
+<button type="button" class="btn btn-info" name="searchfield" type="submit" value="search" onclick="search()">SEARCH</button>
+</div>
+
+
+
+<script>
+
+
+    $(document).ready( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+function myFunction() {
+        document.getElementById("myDIV").style.display = 'block';
+}
+
+function myFunctionCancel() {
+    var x = document.getElementById("myDIV");
+    
+        x.style.display = "none";
+
+}
+
+function onAdd() {
+    var x = document.getElementById("appt-time").value;
+    var arr = x.split(":");
+    var hr = arr[0];
+    if(hr > 17 )
+        alert("Enter Time between 8am - 5pm!");
+        
+        if(hr < 8 )
+        alert("Enter Time between 8am - 5pm!");
+        
+    var desc = document.getElementById("desc").value.toString();
+    
+    var dateinput = document.getElementById("datepicker").value.toString();
+    
+    var timeinput = document.getElementById("appt-time").value.toString();
+
+    return false;
+    
+    
+}
+
+</script>
+
+</body>
+
+</html>
